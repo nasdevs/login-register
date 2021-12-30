@@ -1,0 +1,24 @@
+{
+    "accounts": [
+        {
+            "username": "nas",
+            "password": "1"
+        },
+        {
+            "username": "nis",
+            "password": "2"
+        },
+        {
+            "username": "nus",
+            "password": "3"
+        },
+        {
+            "username": "nes",
+            "password": "4"
+        },
+        {
+            "username": "nos",
+            "password": "5"
+        }
+    ]
+}
