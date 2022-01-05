@@ -11,7 +11,7 @@ import json
 accountsFile = open('./database/accounts.json', 'r+').read()
 dataUser = json.loads(accountsFile)
 
-class loginRegister():
+class LoginRegister():
     def __init__(self, username = None, password = None):
         self.username = username
         self.password = password
@@ -52,7 +52,7 @@ if __name__ == '__main__':
                 print('Silahkan daftar username dan password anda')
                 print('Username :', regUsername)
             else: break
-        loginRegister(regUsername, regPassword).register()
+        LoginRegister(regUsername, regPassword).register()
         print('Registrasi akun selesai')
 
     elif choose == 2:
@@ -60,7 +60,7 @@ if __name__ == '__main__':
             print('-'*15, 'LOGIN', '-'*15)
             username = str(input('username : '))
             password = str(input('password : '))
-            result = loginRegister(username, password).login()
+            result = LoginRegister(username, password).login()
             if result == True:
                 print('Login Succes')
                 break
