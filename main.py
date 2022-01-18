@@ -1,7 +1,7 @@
 '''
 @name : login-register
 @author : Nasrullah
-@version : 0.1.0
+@version : 0.2.0
 @url github : https://github.com/nasdevs
 @url repository : https://github.com/nasdevs/login-register
 '''
@@ -40,22 +40,34 @@ if __name__ == '__main__':
 
     if choose == 1:
         print('-'*15, 'REGISTER', '-'*15)
-        print('Silahkan daftar username dan password anda')
-        regUsername = str(input('Username : '))
-        while(True): 
-            regPassword = str(input('Password : '))
-            regPassword2 = str(input('Ulangin password : '))
-            if regPassword != regPassword2:
-                print('Password yang anda masukkan tidak sama')
-                print('Silahkan input ulang')
-                print('------------------------------------------')
-                print('Silahkan daftar username dan password anda')
-                print('Username :', regUsername)
-            else: break
-        LoginRegister(regUsername, regPassword).register()
-        print('Registrasi akun selesai')
+        loop = True
+        while (loop == True):
+            print('Silahkan daftar username dan password anda')
+            regUsername = str(input('Username : '))
+            if regUsername.isalnum() == False or len(regUsername) not in range(8, 17):
+                print('Username can only include letters, number and must be 8-16 characters')
+            
+            else: 
+                while (True): 
+                    regPassword = str(input('Password : '))
+                    regPassword2 = str(input('Ulangin password : '))
+                    if regPassword != regPassword2:
+                        print('Password yang anda masukkan tidak sama')
+                        print('Silahkan input ulang')
+                        print('------------------------------------------')
+                        print('Silahkan daftar username dan password anda')
+                        print('Username :', regUsername)
 
-    elif choose == 2:
+                    else:
+                        LoginRegister(regUsername, regPassword).register()
+                        print('Registrasi akun selesai')
+                        loop = False
+                        login = str(input('Login [y/n] : '))
+                        if login.lower() == 'y': 
+                            choose = 2
+                        break
+
+    if choose == 2:
         for i in range(3):
             print('-'*15, 'LOGIN', '-'*15)
             username = str(input('username : '))
